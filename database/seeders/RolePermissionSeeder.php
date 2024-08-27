@@ -15,8 +15,14 @@ class RolePermissionSeeder extends Seeder
         // Membuat permission
         $permissions = [
             'tambah-user',
+            'edit-user',
+            'hapus-user',
+            'lihat-user',
             'tambah-tulisan',
-            'edit-tulisan'
+            'edit-tulisan',
+            'hapus-tulisan',
+            'lihat-tulisan',
+
         ];
 
         foreach ($permissions as $permission) {
@@ -26,6 +32,10 @@ class RolePermissionSeeder extends Seeder
         // Membuat role
         $adminRole = \Spatie\Permission\Models\Role::create(['name' => 'admin']);
         $penulisRole = \Spatie\Permission\Models\Role::create(['name' => 'penulis']);
+
+        //role find
+        $adminRole = \Spatie\Permission\Models\Role::findByName('admin');
+        $penulisRole = \Spatie\Permission\Models\Role::findByName('penulis');
 
         // Memberikan permission ke role
         $adminRole->givePermissionTo($permissions);

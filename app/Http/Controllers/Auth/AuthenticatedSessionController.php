@@ -28,12 +28,15 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        //buat agar bila login sebagai admin bisa masuk return admin yang ada di web.php
         if (Auth::user()->hasRole('admin')) {
-            return redirect()->route('admin');
+            # code...
+            return redirect()->to('admin');
         }
 
         if (Auth::user()->hasRole('penulis')) {
-            return redirect()->route('penulis');
+            # code...
+            return redirect()->to('penulis');
         }
 
         return redirect()->intended(route('dashboard', absolute: false));

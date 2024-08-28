@@ -46,9 +46,6 @@ class User extends Authenticatable
         ];
     }
 
-    public function hasRole($role): bool
-    {
-        return $this->hasRole($role); // Misalnya, jika role disimpan sebagai string
-    }
+
 
 }

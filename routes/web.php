@@ -24,6 +24,11 @@ Route::get('/admin', function () {
 
 Route::get('/penulis', function () {
     return '<h1>Hello penulis</h1>';
-})->middleware(['auth', 'verified','role:penulis|admin']);
+})->middleware(['auth', 'verified','role:penulis']);
+
+Route::get('/tulisan', function () {
+    return view('tulisan');
+})->middleware(['auth', 'verified','permission:lihat-tulisan']);
+
 
 require __DIR__.'/auth.php';
